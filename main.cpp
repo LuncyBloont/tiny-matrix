@@ -106,7 +106,7 @@ int main()
         tmp += tmpv;
         tmp += 2.0f;
     }
-    std::cout << "m * v: " << clock() - t << std::endl;t = clock();
+    std::cout << "m * v: " << (clock() - t) * 1.0f / CLOCKS_PER_SEC * 1000.0f << "ms" << std::endl;
     printVec(tmp);
 
     t = clock();
@@ -117,7 +117,7 @@ int main()
         tmp += tmpv;
         tmp += 2.0f;
     }
-    std::cout << "v * m: " << clock() - t << std::endl;
+    std::cout << "v * m: " << (clock() - t) * 1.0f / CLOCKS_PER_SEC * 1000.0f << "ms" << std::endl;
     printVec(tmp);
 
     printVec(mul(m0, v1));
