@@ -7,6 +7,8 @@
 
 #include "__vec_type.hpp" // IWYU pragma: keep
 
+namespace tinymat {
+
 #define _TINYMAT_VEC_OP +
 #include "__vec_op.hpp"
 
@@ -46,8 +48,6 @@ mat<V, C>& mat<V, C>::operator/=(const float& s)
     *this = *this / s;
     return *this;
 }
-
-namespace tinymat {
     
 inline float __fastSqrtInv(const float& k)
 {

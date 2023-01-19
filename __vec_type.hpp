@@ -5,6 +5,8 @@
 
 #define __TINY_MAT_MAX_DIM__ 4
 
+namespace tinymat {
+
 template<int C>
 struct vec;
 
@@ -206,5 +208,7 @@ struct mat
     mat<V, C>& operator*=(const float& o);
     mat<V, C>& operator/=(const float& o);
 };
+
+}
 
 #endif
