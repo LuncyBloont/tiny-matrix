@@ -76,8 +76,8 @@ struct vec
 #endif
     }
     
-    template<int I, typename T, typename... Args>
-    void _init(T first, Args... args)
+    template<int I, typename... Args>
+    void _init(float first, Args... args)
     {
         assert(I < C);
         data[I] = first;
@@ -144,8 +144,8 @@ struct mat
 #endif
     }
 
-    template<int I, typename T, typename... Args>
-    void _init(T first, Args... args)
+    template<int I, typename... Args>
+    void _init(float first, Args... args)
     {
         assert(I < size);
         data[I / height][I % height] = first;

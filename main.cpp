@@ -165,6 +165,11 @@ int main()
     printVec(mod(vec3(1.5f, 2.3f, 0.8f), vec3(2.0f)));
     printVec(floor(vec3(1.5f, 2.3f, 0.8f)));
 
+    vec2 v00 = vec2(0.5f, 1.34f);
+    vec3 p00 = vec3(v00, 0.2f);
+    printVec(v00);
+    printVec(p00);
+
     std::cout << "end\n";
 
     return 0;
