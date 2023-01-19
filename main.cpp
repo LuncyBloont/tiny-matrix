@@ -162,6 +162,9 @@ int main()
     printMat(mx * inverse(mx));
     printMat(mx * inverse(mx) * mx);
 
+    printVec(mod(vec3(1.5f, 2.3f, 0.8f), vec3(2.0f)));
+    printVec(floor(vec3(1.5f, 2.3f, 0.8f)));
+
     std::cout << "end\n";
 
     return 0;

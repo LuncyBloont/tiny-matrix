@@ -7,6 +7,8 @@
 #define _TINYMAT_VEC_LINK_OP__(s) s##=
 #define _TINYMAT_VEC_OP_EQUAL(s) _TINYMAT_VEC_LINK_OP__(s)
 
+namespace tinymat {
+
 template<int C>
 vec<C> operator _TINYMAT_VEC_OP(const float& scale, const vec<C>& o)
 {
@@ -36,6 +38,8 @@ vec<C>& vec<C>::operator _TINYMAT_VEC_OP_EQUAL(_TINYMAT_VEC_OP)(const vec<C>& o1
 {
     *this = *this + o1;
     return *this;
+}
+
 }
 
 #undef _TINYMAT_VEC_OP

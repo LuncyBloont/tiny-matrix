@@ -7,7 +7,6 @@
 
 #include "__vec_type.hpp" // IWYU pragma: keep
 
-namespace tinymat {
 
 #define _TINYMAT_VEC_OP +
 #include "__vec_op.hpp"
@@ -20,6 +19,8 @@ namespace tinymat {
 
 #define _TINYMAT_VEC_OP /
 #include "__vec_op.hpp"
+
+namespace tinymat {
 
 template<int V, int C>
 mat<V, C>& mat<V, C>::operator+=(const mat<V, C>& o)
@@ -90,6 +91,11 @@ inline float mix(const float& a, const float& b, const float& m)
     return a * (1.0f - m) + b * m;
 }
 
+inline float mod(const float& a, const float& b)
+{
+    return fract(a / b) * b;
+}
+
 #define _TINYMAT_VEC_FUNC abs
 #define _TINYMAT_VEC_REAL_FUNC std::abs
 #include "__vec_func.hpp"
@@ -99,6 +105,7 @@ inline float mix(const float& a, const float& b, const float& m)
 #include "__vec_func.hpp"
 
 #define _TINYMAT_VEC_FUNC floor
+#define _TINYMAT_VEC_REAL_FUNC std::floor
 #include "__vec_func.hpp"
 
 #define _TINYMAT_VEC_FUNC ceil
@@ -138,7 +145,7 @@ inline float mix(const float& a, const float& b, const float& m)
 #include "__vec_func.hpp"
 
 #define _TINYMAT_VEC_FUNC mod
-#define _TINYMAT_VEC_REAL_FUNC modf
+#define _TINYMAT_VEC_REAL_FUNC mod
 #include "__vec_func2.hpp"
 
 #define _TINYMAT_VEC_FUNC min

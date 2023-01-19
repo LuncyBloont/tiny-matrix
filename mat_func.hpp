@@ -3,7 +3,7 @@
 
 #include "__vec_type.hpp"
 
-namespace tinymat {
+using namespace tinymat;
 
 inline float det(const mat1& m)
 {
@@ -60,8 +60,6 @@ mat<C, C> adjugate(const mat<C, C>& m)
         }
     }
     return res;
-}
-
 }
 
 #endif

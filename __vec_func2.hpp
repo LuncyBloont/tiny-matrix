@@ -8,6 +8,8 @@
 #define _TINYMAT_VEC_REAL_FUNC _TINYMAT_VEC_FUNC
 #endif
 
+using namespace tinymat;
+
 template<int C>
 vec<C> _TINYMAT_VEC_FUNC(const vec<C>& o0, const vec<C>& o1)
 {
