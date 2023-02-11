@@ -1,5 +1,4 @@
-#ifndef __TINTMAT_MAT_FUNC_HPP
-#define __TINTMAT_MAT_FUNC_HPP
+#pragma once
 
 #include "__vec_type.hpp"
 
@@ -61,6 +60,4 @@ mat<C, C> adjugate(const mat<C, C>& m)
     }
     return res;
 }
-
-#endif
 

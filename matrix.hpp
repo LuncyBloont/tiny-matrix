@@ -1,5 +1,4 @@
-#ifndef MATRIX_HPP
-#define MATRIX_HPP
+#pragma once
 
 #include <cmath>
 #include <algorithm>
@@ -322,4 +321,3 @@ mat<C, C> inverse(const mat<C, C>& m)
 }
 
 } // tinymat
-#endif

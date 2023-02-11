@@ -1,5 +1,4 @@
-#ifndef __VEC_TYPE_HPP
-#define __VEC_TYPE_HPP
+#pragma once
 
 #include <cassert>
 
@@ -211,4 +210,3 @@ struct mat
 
 }
 
-#endif
