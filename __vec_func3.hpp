@@ -1,3 +1,4 @@
+// ReSharper disable once CppMissingIncludeGuard
 #include "__vec_type.hpp"
 
 #ifndef _TINYMAT_VEC_FUNC
@@ -5,12 +6,13 @@
 #endif
 
 #ifndef _TINYMAT_VEC_REAL_FUNC
-#define _TINYMAT_VEC_REAL_FUNC _TINYMAT_VEC_FUNC
+// ReSharper disable once CppInconsistentNaming
+#define _TINYMAT_VEC_REAL_FUNC _TINYMAT_VEC_FUNC  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier)
+
+
 #endif
 
-using namespace tinymat;
-
-template<int C>
+template <int C>
 vec<C> _TINYMAT_VEC_FUNC(const vec<C>& o0, const vec<C>& o1, const vec<C>& o2)
 {
     vec<C> res;
@@ -18,5 +20,5 @@ vec<C> _TINYMAT_VEC_FUNC(const vec<C>& o0, const vec<C>& o1, const vec<C>& o2)
     return res;
 }
 
-#undef _TINYMAT_VEC_FUNC
-#undef _TINYMAT_VEC_REAL_FUNC
+#undef _TINYMAT_VEC_FUNC  // NOLINT(clang-diagnostic-reserved-macro-identifier)
+#undef _TINYMAT_VEC_REAL_FUNC  // NOLINT(clang-diagnostic-reserved-macro-identifier)

@@ -1,16 +1,19 @@
 #include <iostream>
 #include <ctime>
-#define __TINYMAT_USE_FAST_SQRT__
-#define __TINYMAT_STRICT_INIT__
+// ReSharper disable once IdentifierTypo
+#define __TINYMAT_USE_FAST_SQRT__  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier)
+// ReSharper disable once IdentifierTypo
+#define __TINYMAT_STRICT_INIT__  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier)
 #include "matrix.hpp"
+#include "mat2str.hpp"
 
 using namespace tinymat;
 
-#define __DEBUG_MACRO(s) #s
+#define __DEBUG_MACRO(s) #s  // NOLINT(clang-diagnostic-reserved-macro-identifier)
 #define DEBUG_MACRO(s) __DEBUG_MACRO(s)
 
-template<int C>
-void __printVec(const vec<C>& v)
+template <int C>
+void __printVec(const vec<C>& v) // NOLINT(clang-diagnostic-reserved-identifier, bugprone-reserved-identifier)
 {
     std::cout << "vec" << C << "( ";
     for (int i = 0; i < C; ++i)
@@ -20,8 +23,8 @@ void __printVec(const vec<C>& v)
     std::cout << " )\n";
 }
 
-template<int V, int C>
-void __printMat(const mat<V, C>& m)
+template <int V, int C>
+void __printMat(const mat<V, C>& m) // NOLINT(clang-diagnostic-reserved-identifier, bugprone-reserved-identifier)
 {
     std::cout << "mat" << m.width << "x" << m.height << ":\n";
     for (int i = 0; i < m.height; ++i)
@@ -100,24 +103,24 @@ int main()
     vec3 tmp;
     vec3 tmpv(2.0f, 2.5f, 1.3f);
     clock_t t = clock();
-    for (int i = 0; i < 10000; ++i) 
+    for (int i = 0; i < 10000; ++i)
     {
         tmpv += mul(tmpv, m0);
         tmp += tmpv;
         tmp += 2.0f;
     }
-    std::cout << "m * v: " << (clock() - t) * 1.0f / CLOCKS_PER_SEC * 1000.0f << "ms" << std::endl;
+    std::cout << "m * v: " << float(clock() - t) * 1.0f / CLOCKS_PER_SEC * 1000.0f << "ms" << std::endl;
     printVec(tmp);
 
     t = clock();
     tmpv = vec3(1.4f, 1.6f, 1.3f);
-    for (int i = 0; i < 10000; ++i) 
+    for (int i = 0; i < 10000; ++i)
     {
         tmpv += mul(tmpv, m0);
         tmp += tmpv;
         tmp += 2.0f;
     }
-    std::cout << "v * m: " << (clock() - t) * 1.0f / CLOCKS_PER_SEC * 1000.0f << "ms" << std::endl;
+    std::cout << "v * m: " << float(clock() - t) * 1.0f / CLOCKS_PER_SEC * 1000.0f << "ms" << std::endl;
     printVec(tmp);
 
     printVec(mul(m0, v1));
@@ -169,6 +172,10 @@ int main()
     vec3 p00 = vec3(v00, 0.2f);
     printVec(v00);
     printVec(p00);
+
+    std::cout << v3 << std::endl;
+    std::cout << m32 << std::endl;
+    std::cout << mr << std::endl;
 
     std::cout << "end\n";
 
