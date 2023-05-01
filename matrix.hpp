@@ -152,18 +152,22 @@ namespace tinymat
 #include "__vec_func.hpp"
 
 #define _TINYMAT_VEC_FUNC exp  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier)
+#define _TINYMAT_VEC_REAL_FUNC ::exp  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier)
     // ReSharper disable once CppUnusedIncludeDirective
 #include "__vec_func.hpp"
 
 #define _TINYMAT_VEC_FUNC log  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier)
+#define _TINYMAT_VEC_REAL_FUNC ::log  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier)
     // ReSharper disable once CppUnusedIncludeDirective
 #include "__vec_func.hpp"
 
 #define _TINYMAT_VEC_FUNC exp2  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier)
+#define _TINYMAT_VEC_REAL_FUNC ::exp2  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier)
     // ReSharper disable once CppUnusedIncludeDirective
 #include "__vec_func.hpp"
 
 #define _TINYMAT_VEC_FUNC log2  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier)
+#define _TINYMAT_VEC_REAL_FUNC ::log2  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier)
     // ReSharper disable once CppUnusedIncludeDirective
 #include "__vec_func.hpp"
 

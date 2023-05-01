@@ -13,9 +13,9 @@
 #endif
 
 template <int C>
-vec<C> _TINYMAT_VEC_FUNC(const vec<C>& o0, const vec<C>& o1, const vec<C>& o2)
+tinymat::vec<C> _TINYMAT_VEC_FUNC(const tinymat::vec<C>& o0, const tinymat::vec<C>& o1, const tinymat::vec<C>& o2)
 {
-    vec<C> res;
+    tinymat::vec<C> res;
     __for_dec(i, 0, o0.size) { res[i] = _TINYMAT_VEC_REAL_FUNC(o0[i], o1[i], o2[i]); }
     return res;
 }

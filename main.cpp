@@ -177,6 +177,24 @@ int main()
     std::cout << m32 << std::endl;
     std::cout << mr << std::endl;
 
+    std::cout << "exp: " << exp<1>(2.74f) << std::endl;
+    std::cout << "exp: " << exp(vec3(2.738f)) << std::endl;
+    
+    std::cout << "exp2: " << exp2<1>(4.0f) << std::endl;
+    std::cout << "exp2: " << exp2(vec3(3.0f)) << std::endl;
+
+    std::cout << "log: " << log<1>(2.74f) << std::endl;
+    std::cout << "log: " << log(vec3(2.738f)) << std::endl;
+
+    std::cout << "log2: " << log2<1>(2.74f) << std::endl;
+    std::cout << "log2: " << log2(vec3(2.738f)) << std::endl;
+
+    std::cout << "fract: " << fract<1>(2.74f) << std::endl;
+    std::cout << "fract: " << fract(vec3(2.738f)) << std::endl;
+
+    std::cout << "mod: " << mod<1>(2.74f, 1.1f) << std::endl;
+    std::cout << "mod: " << mod<3>(vec3(2.738f), 2.0f) << std::endl;
+
     std::cout << "end\n";
 
     return 0;
