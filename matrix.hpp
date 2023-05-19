@@ -4,27 +4,18 @@
 #include <algorithm>
 #include "mat_func.hpp"
 
-#include "__vec_type.hpp" // IWYU pragma: keep
+#include "__vec_type.hpp"
 
-
-// ReSharper disable once CppInconsistentNaming
-#define _TINYMAT_VEC_OP +  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier, bugprone-macro-parentheses)
-// ReSharper disable once CppUnusedIncludeDirective
+#define _TINYMAT_VEC_OP +
 #include "__vec_op.hpp"
 
-// ReSharper disable once CppInconsistentNaming
-#define _TINYMAT_VEC_OP -  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier, bugprone-macro-parentheses)
-// ReSharper disable once CppUnusedIncludeDirective
+#define _TINYMAT_VEC_OP -
 #include "__vec_op.hpp"
 
-// ReSharper disable once CppInconsistentNaming
-#define _TINYMAT_VEC_OP *  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier)
-// ReSharper disable once CppUnusedIncludeDirective
+#define _TINYMAT_VEC_OP *
 #include "__vec_op.hpp"
 
-// ReSharper disable once CppInconsistentNaming
-#define _TINYMAT_VEC_OP /  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier, bugprone-macro-parentheses)
-// ReSharper disable once CppUnusedIncludeDirective
+#define _TINYMAT_VEC_OP /
 #include "__vec_op.hpp"
 
 namespace tinymat
@@ -57,7 +48,7 @@ namespace tinymat
         return *this;
     }
 
-    inline float __fastSqrtInv(const float& k)  // NOLINT(clang-diagnostic-reserved-identifier, bugprone-reserved-identifier)
+    inline float _fastSqrtInv(const float& k)
     {
         union
         {
@@ -70,8 +61,8 @@ namespace tinymat
 
     inline float sqrtInv(const float& k)
     {
-#ifdef __TINYMAT_USE_FAST_SQRT__
-        return __fastSqrtInv(k);
+#ifdef _TINYMAT_USE_FAST_SQRT_
+        return _fastSqrtInv(k);
 #else
         return 1.0f / sqrtf(k);
 #endif
@@ -79,7 +70,7 @@ namespace tinymat
 
     inline float fastSqrt(const float& k)
     {
-        return 1.0f / __fastSqrtInv(k);
+        return 1.0f / _fastSqrtInv(k);
     }
 
     inline float fract(float k)
@@ -107,115 +98,91 @@ namespace tinymat
         return fract(a / b) * b;
     }
 
-    // ReSharper disable once IdentifierTypo
-#define _TINYMAT_VEC_FUNC abs  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier)
-#define _TINYMAT_VEC_REAL_FUNC std::abs  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier)
-    // ReSharper disable once CppUnusedIncludeDirective
+#define _TINYMAT_VEC_FUNC abs
+#define _TINYMAT_VEC_REAL_FUNC std::abs
 #include "__vec_func.hpp"
 
-#define _TINYMAT_VEC_FUNC sign  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier)
-#define _TINYMAT_VEC_REAL_FUNC signf  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier)
-    // ReSharper disable once CppUnusedIncludeDirective
+#define _TINYMAT_VEC_FUNC sign
+#define _TINYMAT_VEC_REAL_FUNC signf
 #include "__vec_func.hpp"
 
-#define _TINYMAT_VEC_FUNC floor  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier)
-#define _TINYMAT_VEC_REAL_FUNC std::floor  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier)
-    // ReSharper disable once CppUnusedIncludeDirective
+#define _TINYMAT_VEC_FUNC floor
+#define _TINYMAT_VEC_REAL_FUNC std::floor
 #include "__vec_func.hpp"
 
-#define _TINYMAT_VEC_FUNC ceil  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier)
-    // ReSharper disable once CppUnusedIncludeDirective
+#define _TINYMAT_VEC_FUNC ceil
 #include "__vec_func.hpp"
 
-#define _TINYMAT_VEC_FUNC cos  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier)
-    // ReSharper disable once CppUnusedIncludeDirective
+#define _TINYMAT_VEC_FUNC cos
 #include "__vec_func.hpp"
 
-#define _TINYMAT_VEC_FUNC sin  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier)
-    // ReSharper disable once CppUnusedIncludeDirective
+#define _TINYMAT_VEC_FUNC sin
 #include "__vec_func.hpp"
 
-#define _TINYMAT_VEC_FUNC tan  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier)
-    // ReSharper disable once CppUnusedIncludeDirective
+#define _TINYMAT_VEC_FUNC tan
 #include "__vec_func.hpp"
 
-#define _TINYMAT_VEC_FUNC acos  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier)
-    // ReSharper disable once CppUnusedIncludeDirective
+#define _TINYMAT_VEC_FUNC acos
 #include "__vec_func.hpp"
 
-#define _TINYMAT_VEC_FUNC asin  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier)
-    // ReSharper disable once CppUnusedIncludeDirective
+#define _TINYMAT_VEC_FUNC asin
 #include "__vec_func.hpp"
 
-#define _TINYMAT_VEC_FUNC atan  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier)
-    // ReSharper disable once CppUnusedIncludeDirective
+#define _TINYMAT_VEC_FUNC atan
 #include "__vec_func.hpp"
 
-#define _TINYMAT_VEC_FUNC exp  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier)
-#define _TINYMAT_VEC_REAL_FUNC ::exp  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier)
-    // ReSharper disable once CppUnusedIncludeDirective
+#define _TINYMAT_VEC_FUNC exp
+#define _TINYMAT_VEC_REAL_FUNC ::exp
 #include "__vec_func.hpp"
 
-#define _TINYMAT_VEC_FUNC log  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier)
-#define _TINYMAT_VEC_REAL_FUNC ::log  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier)
-    // ReSharper disable once CppUnusedIncludeDirective
+#define _TINYMAT_VEC_FUNC log
+#define _TINYMAT_VEC_REAL_FUNC ::log
 #include "__vec_func.hpp"
 
-#define _TINYMAT_VEC_FUNC exp2  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier)
-#define _TINYMAT_VEC_REAL_FUNC ::exp2  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier)
-    // ReSharper disable once CppUnusedIncludeDirective
+#define _TINYMAT_VEC_FUNC exp2
+#define _TINYMAT_VEC_REAL_FUNC ::exp2
 #include "__vec_func.hpp"
 
-#define _TINYMAT_VEC_FUNC log2  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier)
-#define _TINYMAT_VEC_REAL_FUNC ::log2  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier)
-    // ReSharper disable once CppUnusedIncludeDirective
+#define _TINYMAT_VEC_FUNC log2
+#define _TINYMAT_VEC_REAL_FUNC ::log2
 #include "__vec_func.hpp"
 
-#define _TINYMAT_VEC_FUNC fract  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier)
-    // ReSharper disable once CppUnusedIncludeDirective
+#define _TINYMAT_VEC_FUNC fract
 #include "__vec_func.hpp"
 
-#define _TINYMAT_VEC_FUNC mod  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier)
-#define _TINYMAT_VEC_REAL_FUNC mod  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier)
-    // ReSharper disable once CppUnusedIncludeDirective
+#define _TINYMAT_VEC_FUNC mod
+#define _TINYMAT_VEC_REAL_FUNC mod
 #include "__vec_func2.hpp"
 
-#define _TINYMAT_VEC_FUNC min  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier)
-#define _TINYMAT_VEC_REAL_FUNC std::min  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier)
-    // ReSharper disable once CppUnusedIncludeDirective
+#define _TINYMAT_VEC_FUNC min
+#define _TINYMAT_VEC_REAL_FUNC std::min
 #include "__vec_func2.hpp"
 
-#define _TINYMAT_VEC_FUNC max  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier)
-#define _TINYMAT_VEC_REAL_FUNC std::max  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier)
-    // ReSharper disable once CppUnusedIncludeDirective
+#define _TINYMAT_VEC_FUNC max
+#define _TINYMAT_VEC_REAL_FUNC std::max
 #include "__vec_func2.hpp"
 
-#define _TINYMAT_VEC_FUNC atan  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier)
-#define _TINYMAT_VEC_REAL_FUNC atan2  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier)
-    // ReSharper disable once CppUnusedIncludeDirective
+#define _TINYMAT_VEC_FUNC atan
+#define _TINYMAT_VEC_REAL_FUNC atan2
 #include "__vec_func2.hpp"
 
-#define _TINYMAT_VEC_FUNC pow  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier)
-    // ReSharper disable once CppUnusedIncludeDirective
+#define _TINYMAT_VEC_FUNC pow
 #include "__vec_func2.hpp"
 
-#define _TINYMAT_VEC_FUNC step  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier)
-    // ReSharper disable once CppUnusedIncludeDirective
+#define _TINYMAT_VEC_FUNC step
 #include "__vec_func2.hpp"
 
-#define _TINYMAT_VEC_FUNC clamp  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier)
-    // ReSharper disable once CppUnusedIncludeDirective
+#define _TINYMAT_VEC_FUNC clamp
 #include "__vec_func3.hpp"
 
-#define _TINYMAT_VEC_FUNC mix  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier)
-    // ReSharper disable once CppUnusedIncludeDirective
+#define _TINYMAT_VEC_FUNC mix
 #include "__vec_func3.hpp"
 
     template <int C>
     vec<C> sqrt(const vec<C>& k)
     {
         vec<C> res;
-        __for_dec(i, 0, k.size)
+        _for_dim_(i, 0, k.size)
         {
             res[i] = 1.0f / sqrtInv(k[i]);
         }
@@ -226,7 +193,7 @@ namespace tinymat
     float dot(const vec<C>& o0, const vec<C>& o1)
     {
         float res = 0.0f;
-        __for_dec(i, 0, o0.size) { res += o0[i] * o1[i]; }
+        _for_dim_(i, 0, o0.size) { res += o0[i] * o1[i]; }
         return res;
     }
 
@@ -261,10 +228,10 @@ namespace tinymat
     vec<Mc> mul(const mat<Mv, Mc>& m, const vec<Mv> v)
     {
         vec<Mc> res;
-        __for_dec(i, 0, res.size)
+        _for_dim_(i, 0, res.size)
         {
             vec<m.width> tmp;
-            __for_dec(j, 0, m.width) { tmp[j] = m[j][i]; }
+            _for_dim_(j, 0, m.width) { tmp[j] = m[j][i]; }
             res[i] = dot(tmp, v);
         }
         return res;
@@ -274,7 +241,7 @@ namespace tinymat
     vec<Mv> mul(const vec<Vc> v, const mat<Mv, Vc>& m)
     {
         vec<Mv> res;
-        __for_dec(i, 0, m.width)
+        _for_dim_(i, 0, m.width)
         {
             res[i] = dot(m[i], v);
         }
@@ -285,7 +252,7 @@ namespace tinymat
     mat<M1v, M0c> operator*(const mat<M0v, M0c> m0, const mat<M1v, M0v>& m1)
     {
         mat<M1v, M0c> res;
-        __for_dec(i, 0, m1.width)
+        _for_dim_(i, 0, m1.width)
         {
             res[i] = mul(m0, m1[i]);
         }
@@ -296,7 +263,7 @@ namespace tinymat
     mat<V, C> operator+(const mat<V, C>& m0, const mat<V, C>& m1)
     {
         mat<V, C> res;
-        __for_dec(i, 0, m0.width) { res[i] = m0[i] + m1[i]; }
+        _for_dim_(i, 0, m0.width) { res[i] = m0[i] + m1[i]; }
         return res;
     }
 
@@ -304,7 +271,7 @@ namespace tinymat
     mat<V, C> operator-(const mat<V, C>& m0, const mat<V, C>& m1)
     {
         mat<V, C> res;
-        __for_dec(i, 0, m0.width) { res[i] = m0[i] - m1[i]; }
+        _for_dim_(i, 0, m0.width) { res[i] = m0[i] - m1[i]; }
         return res;
     }
 
@@ -312,7 +279,7 @@ namespace tinymat
     mat<V, C> operator*(const mat<V, C>& m0, const float& s)
     {
         mat<V, C> res;
-        __for_dec(i, 0, m0.width) { res[i] = m0[i] * s; }
+        _for_dim_(i, 0, m0.width) { res[i] = m0[i] * s; }
         return res;
     }
 
@@ -320,7 +287,7 @@ namespace tinymat
     mat<V, C> operator*(const float& s, const mat<V, C>& m0)
     {
         mat<V, C> res;
-        __for_dec(i, 0, m0.width) { res[i] = s * m0[i]; }
+        _for_dim_(i, 0, m0.width) { res[i] = s * m0[i]; }
         return res;
     }
 
@@ -328,7 +295,7 @@ namespace tinymat
     mat<V, C> operator/(const mat<V, C>& m0, const float& s)
     {
         mat<V, C> res;
-        __for_dec(i, 0, m0.width) { res[i] = m0[i] / s; }
+        _for_dim_(i, 0, m0.width) { res[i] = m0[i] / s; }
         return res;
     }
 
@@ -336,7 +303,7 @@ namespace tinymat
     mat<V, C> operator/(const float& s, const mat<V, C>& m0)
     {
         mat<V, C> res;
-        __for_dec(i, 0, m0.width) { res[i] = s / m0[i]; }
+        _for_dim_(i, 0, m0.width) { res[i] = s / m0[i]; }
         return res;
     }
 
@@ -344,9 +311,9 @@ namespace tinymat
     mat<C, V> transpose(const mat<V, C>& m)
     {
         mat<C, V> res;
-        __for_dec(i, 0, res.width)
+        _for_dim_(i, 0, res.width)
         {
-            __for_dec(j, 0, res.height)
+            _for_dim_(j, 0, res.height)
             {
                 res[i][j] = m[j][i];
             }
@@ -359,4 +326,4 @@ namespace tinymat
     {
         return adjugate(m) / det(m);
     }
-} // tinymat
+}

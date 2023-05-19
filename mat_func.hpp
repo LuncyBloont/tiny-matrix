@@ -14,12 +14,12 @@ namespace tinymat
     {
         int k = 1;
         float res = 0.0f;
-        __for_dec(i, 0, m.width)
+        _for_dim_(i, 0, m.width)
         {
             mat<C - 1, C - 1> sub;
-            __for_dec(si, 0, m.width)
+            _for_dim_(si, 0, m.width)
             {
-                __for_dec(sj, 1, m.height)
+                _for_dim_(sj, 1, m.height)
                 {
                     if (si == i) { continue; }
                     sub[si < i ? si : si - 1][sj - 1] = m[si][sj];
@@ -41,14 +41,14 @@ namespace tinymat
     {
         mat<C, C> res;
         int k = 1;
-        __for_dec(i, 0, m.width)
+        _for_dim_(i, 0, m.width)
         {
-            __for_dec(j, 0, m.height)
+            _for_dim_(j, 0, m.height)
             {
                 mat<C - 1, C - 1> sub;
-                __for_dec(si, 0, m.width)
+                _for_dim_(si, 0, m.width)
                 {
-                    __for_dec(sj, 0, m.height)
+                    _for_dim_(sj, 0, m.height)
                     {
                         if (si == i || sj == j) { continue; }
                         sub[si < i ? si : si - 1][sj < j ? sj : sj - 1] = m[si][sj];

@@ -2,9 +2,10 @@
 
 #include <cassert>
 
-#define __TINY_MAT_MAX_DIM__ 4  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier, modernize-macro-to-enum)
-
-
+#ifndef _TINY_MAT_MAX_DIM_
+    #define _TINY_MAT_MAX_DIM_ 4
+#endif
+#define _for_dim_(i, i0, limit) for (int i = i0; i < (limit); ++i)
 
 namespace tinymat
 {
@@ -44,10 +45,6 @@ namespace tinymat
     typedef mat<4, 3> mat4x3;
     typedef mat<4, 4> mat4x4;
 
-#define __for_dec(i, i0, limit) for (int i = i0; i < (limit); ++i)  // NOLINT(clang-diagnostic-reserved-macro-identifier, bugprone-reserved-identifier, bugprone-macro-parentheses)
-
-
-
     template <int C>
     struct vec
     {
@@ -70,12 +67,12 @@ namespace tinymat
         {
             if (I == 1)
             {
-                __for_dec(i, I, size)
+                _for_dim_(i, I, size)
                 {
                     data[i] = data[0];
                 }
             }
-#ifdef __TINYMAT_STRICT_INIT__
+#ifdef _TINYMAT_STRICT_INIT_
             assert(I <= 1 || I == size);
 #endif
         }
@@ -91,7 +88,7 @@ namespace tinymat
         template <int I, int Oc, typename... Args>
         void _init(const vec<Oc>& first, Args... args)
         {
-            __for_dec(i, 0, first.size)
+            _for_dim_(i, 0, first.size)
             {
                 assert(I + i < C);
                 data[I + i] = first[i];
@@ -102,8 +99,8 @@ namespace tinymat
         template <typename... Args>
         vec(Args... args)
         {
-            assert(C > 0 && C <= __TINY_MAT_MAX_DIM__);
-            __for_dec(i, 0, size)
+            assert(C > 0 && C <= _TINY_MAT_MAX_DIM_);
+            _for_dim_(i, 0, size)
             {
                 data[i] = (i == 3 ? 1.0f : 0.0f);
             }
@@ -128,13 +125,9 @@ namespace tinymat
             return data[0];
         }
 
-        // ReSharper disable once CppFunctionIsNotImplemented
         vec<C>& operator+=(const vec<C>& o);
-        // ReSharper disable once CppFunctionIsNotImplemented
         vec<C>& operator-=(const vec<C>& o);
-        // ReSharper disable once CppFunctionIsNotImplemented
         vec<C>& operator*=(const vec<C>& o);
-        // ReSharper disable once CppFunctionIsNotImplemented
         vec<C>& operator/=(const vec<C>& o);
     };
 
@@ -153,15 +146,15 @@ namespace tinymat
         {
             if (I == 1)
             {
-                __for_dec(i, 0, width)
+                _for_dim_(i, 0, width)
                 {
-                    __for_dec(j, 0, height)
+                    _for_dim_(j, 0, height)
                     {
                         data[i][j] = (i == j ? data[0][0] : 0.0f);
                     }
                 }
             }
-#ifdef __TINYMAT_STRICT_INIT__
+#ifdef _TINYMAT_STRICT_INIT_
             assert(I <= 1 || I == size);
 #endif
         }
@@ -177,10 +170,10 @@ namespace tinymat
         template <int I, int Vc, typename... Args>
         void _init(const vec<Vc>& first, Args... args)
         {
-#ifdef __TINYMAT_STRICT_INIT__
+#ifdef _TINYMAT_STRICT_INIT_
             assert(I % C == 0 && Vc == C);
 #endif
-            __for_dec(i, 0, first.size)
+            _for_dim_(i, 0, first.size)
             {
                 assert(I + i < size);
                 data[(I + i) / height][(I + i) % height] = first[i];
@@ -191,10 +184,10 @@ namespace tinymat
         template <typename... Args>
         mat(Args... args)
         {
-            assert(C > 0 && C <= __TINY_MAT_MAX_DIM__ && V > 0 && V <= __TINY_MAT_MAX_DIM__);
-            __for_dec(i, 0, width)
+            assert(C > 0 && C <= _TINY_MAT_MAX_DIM_ && V > 0 && V <= _TINY_MAT_MAX_DIM_);
+            _for_dim_(i, 0, width)
             {
-                __for_dec(j, 0, height)
+                _for_dim_(j, 0, height)
                 {
                     data[i][j] = (i == j ? 1.0f : 0.0f);
                 }

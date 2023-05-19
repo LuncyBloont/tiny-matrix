@@ -1,19 +1,19 @@
 #include <iostream>
 #include <ctime>
 // ReSharper disable once IdentifierTypo
-#define __TINYMAT_USE_FAST_SQRT__  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier)
+#define _TINYMAT_USE_FAST_SQRT_  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier)
 // ReSharper disable once IdentifierTypo
-#define __TINYMAT_STRICT_INIT__  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier)
+#define _TINYMAT_STRICT_INIT_  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier)
 #include "matrix.hpp"
 #include "mat2str.hpp"
 
 using namespace tinymat;
 
-#define __DEBUG_MACRO(s) #s  // NOLINT(clang-diagnostic-reserved-macro-identifier)
-#define DEBUG_MACRO(s) __DEBUG_MACRO(s)
+#define _DEBUG_MACRO(s) #s
+#define DEBUG_MACRO(s) _DEBUG_MACRO(s)
 
 template <int C>
-void __printVec(const vec<C>& v) // NOLINT(clang-diagnostic-reserved-identifier, bugprone-reserved-identifier)
+void _printVec(const vec<C>& v)
 {
     std::cout << "vec" << C << "( ";
     for (int i = 0; i < C; ++i)
@@ -24,7 +24,7 @@ void __printVec(const vec<C>& v) // NOLINT(clang-diagnostic-reserved-identifier,
 }
 
 template <int V, int C>
-void __printMat(const mat<V, C>& m) // NOLINT(clang-diagnostic-reserved-identifier, bugprone-reserved-identifier)
+void _printMat(const mat<V, C>& m)
 {
     std::cout << "mat" << m.width << "x" << m.height << ":\n";
     for (int i = 0; i < m.height; ++i)
@@ -38,9 +38,9 @@ void __printMat(const mat<V, C>& m) // NOLINT(clang-diagnostic-reserved-identifi
     }
 }
 
-#define printVec(...) do { std::cout << "( line " << __LINE__ << " ) " << #__VA_ARGS__ << ": "; __printVec(__VA_ARGS__); } while (0)
-#define printVec1(...) do { std::cout << "( line " << __LINE__ << " ) " << #__VA_ARGS__ << ": "; __printVec<1>(__VA_ARGS__); } while (0)
-#define printMat(...) do { std::cout << "( line " << __LINE__ << " ) " << #__VA_ARGS__ << ": "; __printMat(__VA_ARGS__); } while (0)
+#define printVec(...) do { std::cout << "( line " << __LINE__ << " ) " << #__VA_ARGS__ << ": "; _printVec(__VA_ARGS__); } while (0)
+#define printVec1(...) do { std::cout << "( line " << __LINE__ << " ) " << #__VA_ARGS__ << ": "; _printVec<1>(__VA_ARGS__); } while (0)
+#define printMat(...) do { std::cout << "( line " << __LINE__ << " ) " << #__VA_ARGS__ << ": "; _printMat(__VA_ARGS__); } while (0)
 
 int main()
 {
