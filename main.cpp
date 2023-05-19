@@ -1,9 +1,7 @@
 #include <iostream>
 #include <ctime>
-// ReSharper disable once IdentifierTypo
-#define _TINYMAT_USE_FAST_SQRT_  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier)
-// ReSharper disable once IdentifierTypo
-#define _TINYMAT_STRICT_INIT_  // NOLINT(bugprone-reserved-identifier, clang-diagnostic-reserved-macro-identifier)
+#define _TINYMAT_USE_FAST_SQRT_
+#define _TINYMAT_STRICT_INIT_
 #include "matrix.hpp"
 #include "mat2str.hpp"
 
