@@ -2,8 +2,8 @@
 #include <ctime>
 #define _TINYMAT_USE_FAST_SQRT_
 #define _TINYMAT_STRICT_INIT_
-#include "matrix.hpp"
-#include "mat2str.hpp"
+#include "tinymat/matrix.hpp"
+#include "tinymat/mat2str.hpp"
 
 using namespace tinymat;
 
