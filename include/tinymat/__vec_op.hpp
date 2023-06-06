@@ -37,7 +37,7 @@ namespace tinymat
     template <int C>
     vec<C>& vec<C>::operator _TINYMAT_VEC_OP_EQUAL(_TINYMAT_VEC_OP)(const vec<C>& o1)
     {
-        *this = *this + o1;
+        *this = *this _TINYMAT_VEC_OP o1;
         return *this;
     }
 }

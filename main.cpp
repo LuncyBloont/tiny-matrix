@@ -66,6 +66,7 @@ int main()
 
     printVec(v3);
     printVec(v3 += 3.0f);
+    printVec(v3 *= 3.0f);
     printVec(v3);
 
     printVec(cross(vec3(0.0f, 0.0f, 1.0f), vec3(1.0f, 0.0f, 0.0f)));
@@ -151,6 +152,7 @@ int main()
     mat3x2 m32 = mat3x2(vec2(3.4f, 5.5f), vec2(3.0f, 0.8f), vec2(0.1f, 0.2f));
     printMat(m32);
     printMat(m32 += mat3x2(1.0f));
+    printMat(m32 *= 2.0f);
     printMat(transpose(m32));
 
     std::cout << det(mat3(3.0f, 4.5f, 6.7f, 7.0f, 1.0f, 3.2f, 2.0f, 0.7f, 0.5f)) << std::endl;
