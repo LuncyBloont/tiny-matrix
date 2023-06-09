@@ -129,6 +129,27 @@ namespace tinymat
         vec<C>& operator-=(const vec<C>& o);
         vec<C>& operator*=(const vec<C>& o);
         vec<C>& operator/=(const vec<C>& o);
+        
+        template <int SC>
+        void fillSubVec(vec<SC>& v, int k) const
+        {
+            v[SC - 1] = data[k < size ? (k >= 0 ? k : 0) : size - 1];
+        }
+
+        template <int SC, typename... CS>
+        void fillSubVec(vec<SC>& v, int k, CS... cs) const
+        {
+            v[SC - sizeof...(CS) - 1] = data[k < size ? (k >= 0 ? k : 0) : size - 1];
+            fillSubVec(v, cs...);
+        }
+
+        template <typename... CS>
+        vec<sizeof...(CS)> map(CS... cs) const 
+        {
+            vec<sizeof...(CS)> v;
+            fillSubVec(v, cs...);
+            return v;
+        }
     };
 
     template <int V, int C>

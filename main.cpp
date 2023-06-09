@@ -197,5 +197,15 @@ int main()
 
     std::cout << "end\n";
 
+    vec4 mc4;
+    printVec(mc4 = vec4(3.0f, 1.0f, 2.0f, 0.5f));
+    printVec(mc4.map(2, 3));
+    printVec(mc4.map(3, 1));
+    printVec(mc4.map(0, 1, 2));
+    printVec(mc4.map(7, 4, 1, 6));
+    printVec(mc4.map(4));
+    printVec(mc4.map(2));
+    printVec(mc4.map(3, 2, 1));
+
     return 0;
 }
