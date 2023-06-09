@@ -78,6 +78,11 @@ namespace tinymat
         return k - floor(k);
     }
 
+    inline float signf(float k)
+    {
+        return k > 0.0f ? 1.0f : (k < 0.0f ? -1.0f : 0.0f);
+    }
+
     inline float step(float edge, float x)
     {
         return x < edge ? 0.0f : 1.0f;
@@ -111,24 +116,31 @@ namespace tinymat
 #include "__vec_func.hpp"
 
 #define _TINYMAT_VEC_FUNC ceil
+#define _TINYMAT_VEC_REAL_FUNC ::ceil
 #include "__vec_func.hpp"
 
 #define _TINYMAT_VEC_FUNC cos
+#define _TINYMAT_VEC_REAL_FUNC ::cos
 #include "__vec_func.hpp"
 
 #define _TINYMAT_VEC_FUNC sin
+#define _TINYMAT_VEC_REAL_FUNC ::sin
 #include "__vec_func.hpp"
 
 #define _TINYMAT_VEC_FUNC tan
+#define _TINYMAT_VEC_REAL_FUNC ::tan
 #include "__vec_func.hpp"
 
 #define _TINYMAT_VEC_FUNC acos
+#define _TINYMAT_VEC_REAL_FUNC ::acos
 #include "__vec_func.hpp"
 
 #define _TINYMAT_VEC_FUNC asin
+#define _TINYMAT_VEC_REAL_FUNC ::asin
 #include "__vec_func.hpp"
 
 #define _TINYMAT_VEC_FUNC atan
+#define _TINYMAT_VEC_REAL_FUNC ::atan
 #include "__vec_func.hpp"
 
 #define _TINYMAT_VEC_FUNC exp
@@ -151,7 +163,6 @@ namespace tinymat
 #include "__vec_func.hpp"
 
 #define _TINYMAT_VEC_FUNC mod
-#define _TINYMAT_VEC_REAL_FUNC mod
 #include "__vec_func2.hpp"
 
 #define _TINYMAT_VEC_FUNC min
@@ -163,10 +174,11 @@ namespace tinymat
 #include "__vec_func2.hpp"
 
 #define _TINYMAT_VEC_FUNC atan
-#define _TINYMAT_VEC_REAL_FUNC atan2
+#define _TINYMAT_VEC_REAL_FUNC ::atan2
 #include "__vec_func2.hpp"
 
 #define _TINYMAT_VEC_FUNC pow
+#define _TINYMAT_VEC_REAL_FUNC ::pow
 #include "__vec_func2.hpp"
 
 #define _TINYMAT_VEC_FUNC step
